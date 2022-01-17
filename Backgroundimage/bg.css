@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+    padding:0px;
+    margin: 0px;
+}
+body{
+    background-image: url(./pexels-splash-of-rain-7321.jpg);
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+
+}
+#head{
+    width: 400px;
+    height:150px;
+    border:2px solid whitesmoke;
+    text-align: center;
+    padding: 40px;
+    margin:220px 450px 270px 450px;
+}
