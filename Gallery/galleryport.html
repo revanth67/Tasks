@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Page</title>
+</head>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+    body{
+        background-color: ghostwhite;
+    }
+    nav{
+        background-color: blue;
+        opacity: 0.8;
+        width: 100%;
+        float: left;
+        border-bottom:2px solid blue;
+        color: white;
+        position:fixed;
+        top:0px;
+        left: 0px;
+        z-index: 9999;
+    }
+    h1{
+        float: left;
+        width: 40%;
+        padding-left: 4%;
+        padding-top:0.5%;
+    }
+    ul{
+        float: right;
+        width: 60%;
+    }
+    li{
+        float:left;
+        list-style-type: none;
+        padding: 2%;
+        text-align: center;
+    }
+    li:hover{
+        background-color:blue;
+        opacity: 0.8;
+        border-bottom: 2px solid wheat;
+        color: wheat;
+        }
+    .clear{
+        clear: both;
+    }
+    #add{
+        background-color:gainsboro;
+        color:grey;
+        text-align: center;
+        margin-top:5%;
+        width: 80%;
+        padding-top:2.5%;
+        padding-bottom:2.5%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: large;  
+        letter-spacing: 2px;
+    }
+    #gallery{
+        position: relative;
+        width: 80%;
+        margin-top:2%;
+        margin-left:15%;
+        height: 2100px;
+           
+    }
+    .article1,.article2{
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 0px 10px gray;
+        border: 1px color white;
+        top:0px;
+        left: 0px;
+        width: 300px;
+    }
+    .imageclass{
+        position: relative;
+        z-index: 1;
+        width: 300px;
+        overflow: hidden;
+        transition: 1s;
+    }
+    .overlay{
+        position: absolute;
+        top:0;
+        left: 0;
+        bottom:0;
+        right: 0;
+        background-color: rgba(219, 119, 152,0.8);
+        width:300px;
+        visibility: hidden;
+    }
+    .imageclass:hover .overlay{
+        visibility: visible;
+    }
+    .imageclass:hover img{
+        transform: scale(1.2,1.2);
+    }
+    .imageclass:hover ~ .imagetext h4{
+        text-decoration: underline;
+    }
+    .featured{
+        border:1px solid rgb(5, 99, 136);
+        color:rgb(5, 99, 136); 
+        padding:2%;
+        border-radius:10px;
+    }
+    .travel{
+        border:1px solid orange;
+        color: orange; 
+        padding:2%;
+        border-radius:10px;
+    }
+    .featured:hover{
+        background-color:rgb(5, 99, 136);
+        color: white;
+    }
+    .travel:hover{
+        background-color: orange;
+        color: white;
+    }
+    .page{
+        position: relative;
+        margin-left:45%;
+        margin-top: 3%;
+    }
+    .page1{
+        border: 2px solid palevioletred;
+        padding:10px 14px;
+        text-align: center;
+        font-weight: 600;
+        border-left: 0;
+        background-color: palevioletred;
+        color: white;
+        font-size: 14px;
+    }
+    .page2{
+        border: 2px solid palevioletred;
+        padding:10px 14px;
+        text-align: center;
+        margin-left: -5px;
+        font-weight: 600;
+        border-left: 0;
+        color: palevioletred;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .page2:hover{
+        background-color: palevioletred;
+        color: white;
+    }
+
+</style>
+<body>
+    <nav>
+        <h1>Lycoris</h1>
+        <ul>
+            <li>Home</li>
+            <li>Contact</li>
+            <li>Sitemap</li>
+            <li>Static Page</li>
+            <li>Download here</li>
+            <div class="clear"></div>
+        </ul>
+        <div class="clear"></div>
+    </nav>
+    <div id="add">
+        <article>YOUR ADS HERE</article>
+    </div>
+    <div id="gallery">
+        <article class="article1">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:3%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 5%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:320px">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/Museum Helps Kids Learn Skills.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:6%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 6%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:640px">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/Floating Architecture is Making Waves.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:2%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 2%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:0px;top:410px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:2%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 2%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:320px;top:420px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/Floating Architecture is Making Waves.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:2%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 2%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:640px;top:400px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:2%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 2%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:0px;top:810px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/Vectorized iPhone X Mockup.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:2%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 2%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:0px;top:810px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:2%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 2%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:320px;top:820px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:6%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top:4%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+        </article>
+        <article class="article2" style="left:640px;top:800px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:8%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 6%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+         </article>
+         <article class="article2" style="left:0px;top:1210px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:8%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 6%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+         </article>
+         <article class="article2" style="left:320px;top:1240px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:10%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 6%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+         </article>
+         <article class="article2" style="left:640px;top:1230px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:8%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 6%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:5%;">
+                <div style="font-size: smaller;margin-top:10%;margin-bottom:10%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+         </article>
+         <article class="article2" style="left:0px;top:1640px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:4%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 6%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:2%;">
+                <div style="font-size: smaller;margin-top:8%;margin-bottom:5%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+         </article>
+         <article class="article2" style="left:320px;top:1680px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/Some of the Most Beautiful Day.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:4%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 6%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:2%;">
+                <div style="font-size: smaller;margin-top:8%;margin-bottom:5%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+         </article>  
+         <article class="article2" style="left:640px;top:1660px;">
+            <div class="imageclass">
+                <a href="#">
+                <img src="./images/7 Ways To Travel Like a Pro.jpg" alt="imageways" width=300px>
+                <div class="overlay"></div>
+                </a>
+            </div>
+            <div class="imagetext" style="margin-top:4%;text-align:left;padding: 1%;">
+                <h4>Lycoris Responsive Blogger Template</h4>
+                <hr style="margin-top:5%;">
+                <p style="font-size: smaller;margin-top: 4%;color: gray;">
+                    Mauris mattis auctor cursus. Phasellus tellus tellus, imperdiet ut imperdiet eu,
+                     iaculis a sem.
+                </p>
+                <hr style="margin-top:2%;">
+                <div style="font-size: smaller;margin-top:8%;margin-bottom:5%;">
+                    <span class="featured">Featured</span>
+                    <span class="travel">Travel</span>
+                </div>
+            </div>
+         </article>  
+         <div class="clear"></div>       
+    </div>
+    <div class="page">
+        <span class="page1">1</span>
+        <span class="page2">2</span>
+        <span class="page2">Next</span>
+    </div> 
+    <div id="add">
+        <article>YOUR ADS HERE</article>
+    </div>
+    <div style="margin-top:2%;background-color:white;text-align: center;padding:3%;">
+        <p>Copyright © 2019 Lycoris All Right Reserved . Created by Idntheme . Powered by Blogger</p>
+    </div>
+</body>
+</html>
