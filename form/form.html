@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+        form{
+            margin-top:100px;
+            margin-left:500px;
+        }
+        #details{
+            margin-top:10px;
+            margin-left: 500px;
+        }
+        
+     </style>
+ </head>
+ <body>
+     <form id="container">
+        <p><input type="text" id="cardname" placeholder="Name"></p>
+        <p><input type="number" id="cardcost" placeholder="Cost"></p>
+        <p><input type="text" id="cardaddress" placeholder="Address"></p>
+        <div id="parentbutton"> 
+        <p><button type="button" id="additems">Add Items</button></p>
+        </div>
+     </form>
+     <div id="details">
+        <h1>Details :</h1>      
+        <div id="card"></div>
+    </div>   
+        <script>
+         var salesJson=[];
+         var _cardname=document.querySelector("#cardname");
+         var _cardcost=document.querySelector("#cardcost");
+         var _cardaddress=document.querySelector("#cardaddress");
+         var _additems=document.querySelector("#additems");
+         var _parentbutton=document.querySelector("#parentbutton");
+         var _id=document.querySelector("#card");
+         var _container=document.querySelector("#container");
+         _parentbutton.addEventListener("click",function(){ 
+             var item={}; 
+             item.name=_cardname.value;
+             item.cost=_cardcost.value; 
+             item.address=_cardaddress.value;
+             salesJson.push(item);
+             _container.reset();
+             console.log(salesJson);
+         },true);
+         _additems.addEventListener("click",function(){
+           _id.innerHTML="<h2>"+'Name : '+salesJson[salesJson.length-1].name+"<br>"+"Cost : "+salesJson[salesJson.length-1].cost+
+           "<br>"+'Address : ' +salesJson[salesJson.length-1].address;
+           "</h2>";
+         },true)
+         
+     </script>
+ </body>
+ </html>

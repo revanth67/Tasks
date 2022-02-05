@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Responsive login/fontawesome-free-5.15.4-web/css/all.min.css">
+    <title>Phorto</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        nav{
+            background-color: black;
+            color: white;
+            float: left;
+            width: 100%;
+            position: relative;
+            z-index: 9999;
+        }
+        nav ul li{
+            float: left;
+            list-style-type: none;
+            text-align: center;
+            padding:12px 1.5%;
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            font-size: 90%;
+            font-weight: 550;
+        }
+        nav ul li a:hover{
+            color: palevioletred;
+        }
+        .features{
+            position: relative;
+        }
+        .submenu{
+            position: absolute;
+            background-color: white;
+            border: 1px solid gray;
+            width: 130%;
+            top:45px;
+            left: -18px;
+            visibility: hidden;
+            transition:0.2s;
+        }
+        .submenu li{
+            text-align: left;
+            padding:8%;
+        }
+        .submenu li a{
+            font-weight: 500;
+            font-size:75%;
+            color: black;
+        }
+        .features:hover .submenu{
+            visibility: visible;
+        }
+        .subsubmenu{
+            position: absolute;
+            background-color: white;
+            border: 1px solid gray;
+            width: 80%;
+            left:100%;
+            top:-1px;
+            visibility: hidden;
+            transition:0.2s;
+        }
+        .multidrop:hover .subsubmenu{
+            visibility: visible;
+        }
+
+  </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li style="margin-left:8%;font-size: larger;"><i class="fas fa-image"></i><strong> Phorto</strong></li>
+            <li><a href="#">Home</a></li>
+            <li class="features" ><a href="#">Features <i class="fas fa-sort-down"></i> </a>
+                <ul class="submenu">
+                    <li class="multidrop"><a href="#">Multi Drop Down <i class="fas fa-chevron-right"></i></a>
+                        <ul class="subsubmenu">
+                            <li><a href="#">Menu Drop1</a></li>
+                            <li><a href="#">Menu Drop1</a></li>
+                            <li><a href="#">Menu Drop1</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Short Codes</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Error Page</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Video Documentation</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Download This Template</a></li>
+            <li style="float: right;margin-right:8%;"><a href="#"><i class="fas fa-search"></i></a> </li>
+        </ul>
+    </nav>
+    
+</body>
+</html>
