@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./fontawesome-free-5.15.4-web/css/all.min.css">
     <title>Responsive Form</title>
-</head>
 <style>
     *{
         margin: 0px;
@@ -31,7 +30,7 @@
         padding: 0px 2% 2% 2% ;
     }
     .inputstyle{
-        width:70%;
+        width:80%;
         border: 0px;
         padding: 8px;
         border-left:1px solid grey;
@@ -64,40 +63,61 @@
         font-size: 110%;
         cursor: pointer;
     }
+    .error{
+        color:orange;
+    }
+    .d-none{
+        display: none;
+    }
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+}
 </style>
+</head>
 <body>
-    <form action="#">
+    <form id="form">
         <hr style="color: orange;height:8px;background-color: orange;border:0px;">
         <h1 style="text-align: center;">Responsive Registration form</h1>
         <div class="formstyle">
             <i class="fas fa-envelope"></i>
-            <input type="text" class="inputstyle" name="email" id="email" placeholder="Email" required>
+            <input type="text" class="inputstyle" id="email" placeholder="Email" required>
+            <span class="fas fa-exclamation-triangle error d-none" ></span>
         </div>
         <div class="formstyle"> 
             <i class="fas fa-lock"></i>
             <input type="password" class="inputstyle" name="password" id="password" placeholder="Password" required>
+            <span class="fas fa-exclamation-triangle error d-none" ></span>
         </div>
         <div class="formstyle">
             <i class="fas fa-lock"></i>
             <input type="password" class=" inputstyle" name="retype" id="retype" placeholder="Re-type Password" required>
+            <span class="fas fa-exclamation-triangle error d-none" ></span>
         </div>
         <div class="formstyle2">
             <i class="fas fa-user" ></i>
-            <input type="text" class="inputstyle" name="first" id="first" placeholder="First Name" required>
+            <input type="text" style="width: 60%" class="inputstyle" name="first" id="first" placeholder="First Name" required>
+            <span class="fas fa-exclamation-triangle error d-none" ></span>
         </div>
         <div class="formstyle2"  style="margin-left:18%;"  >
             <i class="fas fa-user"></i>
-            <input type="text"  class="inputstyle"  name="last" id="last" placeholder="Last Name" required>
+            <input type="text" style="width: 60%" class="inputstyle"  name="last" id="last" placeholder="Last Name" required>
+            <span class="fas fa-exclamation-triangle error d-none" ></span>
         </div>
         </div>
         <div>
-            <input type="radio" name="gender" id="gender1" value="male" >
+            <input type="radio" name="gender" class="gender" value="male" >
             <label for="gender1">Male</label>
-            <input type="radio" name="gender" id="gender2" value="female" style="margin-left: 4%;color: grey;">
+            <input type="radio" name="gender" class="gender" value="female" style="margin-left: 4%;color: grey;">
             <label for="gender2">Female</label>
         </div>
         <div>
-            <select  class="inputstyle2" name="country" id="country">
+            <select  class="inputstyle2" style="width: 90%;" name="country" id="country">
                 <option value="select" style="color: grey;">Select your country</option>
                 <option value="india">India</option>
                 <option value="usa">USA</option>
@@ -105,6 +125,7 @@
                 <option value="england">England</option>
                 <option value="australia">Australia</option>
             </select>
+            <span class="fas fa-exclamation-triangle error d-none" ></span>
         </div>
         <div>
             <input type="checkbox" name="terms" id="terms">
@@ -115,10 +136,164 @@
             <label for="receive">I want to receive the newsletter</label>
         </div>
         <div>
-            <button type="submit" value="Register" class="buttonstyle">Register</button>
-        </div>
-        
+            <button type="button" class="buttonstyle" onclick="">Register</button>
+        </div>   
     </form>
+    <div id="show">
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Country</th>
+                <th>Terms and conditions</th>
+                <th>Receive the letter</th>
+                <th>Button</th>
+            </tr>
+            <tbody id="tablerow">
+            
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function SomeDeleteRowFunction(ch) {
+      // event.target will be the input element.
+      //9console.log(event.target);
+      //var td = event.target.parentNode; 
+      var td=ch.parentNode;
+      //console.log(td.parentNode);
+      var tr = td.parentNode; // the row to be removed
+      //console.log(tr.parentNode);
+      tr.parentNode.removeChild(tr);
+}
+        var email=document.querySelector("#email");
+        var password=document.querySelector("#password");
+        var retype=document.querySelector("#retype");
+        var first=document.querySelector("#first");
+        var last=document.querySelector('#last');
+        var gender=document.getElementsByClassName("gender");
+        var country=document.querySelector("#country");
+        var terms=document.querySelector("#terms");
+        var receive=document.querySelector("#receive");
+        var btn=document.querySelector(".buttonstyle");
+        var err=document.getElementsByClassName("error");
+        var form=document.querySelector("form");
+        console.log(email);
+        emailpattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        passwordpattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/g;
+        firstpattern=/^[a-zA-Z]{1,}/;
+    data=[];
+    btn.onclick=function(){
+        var gendervalue="";
+        for(var i=0;i<gender.length;i++){
+            if(gender[i].checked){
+                gendervalue=gender[i].value;
+                console.log(gendervalue);
+            }
+        }
+    if(!email.value.match(emailpattern)){
+        err[0].style.display="inline";
+    }
+    else if(!password.value.match(passwordpattern)){
+        console.log("Enter Password");
+        err[0].style.display="none";
+        err[1].style.display="inline";
+    }
+    else if(password.value!=retype.value){
+        console.log("Reenter Password");
+        err[0].style.display="none";
+        err[1].style.display="none";
+        err[2].style.display="inline";
+    }
+    else if(!first.value.match(firstpattern)){
+        console.log("Enter First Name");
+        err[0].style.display="none";
+        err[1].style.display="none";
+        err[2].style.display="none";
+        err[3].style.display="inline";
+    }
+    else if(last.value==""){
+        console.log("Enter Late Name");
+        err[0].style.display="none";
+        err[1].style.display="none";
+        err[2].style.display="none";
+        err[3].style.display="none";
+        err[4].style.display="inline";
+    }
+    else if(gendervalue==""){
+        alert("Select gender");
+        err[0].style.display="none";
+        err[1].style.display="none";
+        err[2].style.display="none";
+        err[3].style.display="none";
+        err[4].style.display="none";
+    }
+    else if(country.value=="select"){
+        console.log("Choose country");
+        err[0].style.display="none";
+        err[1].style.display="none";
+        err[2].style.display="none";
+        err[3].style.display="none";
+        err[4].style.display="none";
+        err[5].style.display="inline";
+    }
+    else if(!terms.checked){
+        alert("Accept terms");
+        err[0].style.display="none";
+        err[1].style.display="none";
+        err[2].style.display="none";
+        err[3].style.display="none";
+        err[4].style.display="none";
+        err[5].style.display="none";
+    }
+    else if(!receive.checked){
+        alert(" Accept Receive terms");
+    }
+    else{
+        alert("Thank you");
+
+    var candidate={
+        "Email":email.value,
+        "Password":password.value,
+        "Firstname":first.value,
+        "LastName":last.value,
+        "Gender":gendervalue,
+        "Country":country.value,
+        "Terms":terms.checked,
+        "Receive":receive.checked,
+    };
+    data.push(candidate);
+    console.log(data);
+    //var tr=document.createElement('tr');
+    var tablerow=document.querySelector("#tablerow"); 
+    var tr=document.createElement('tr');
+        tablerow.appendChild(tr); 
     
+        //tablerow.appendChild(btn);
+    //console.log(btn);
+   // <button onclick="close">Delete</button>
+
+    var ele="";
+    for(var i=0;i<data.length;i++){  
+    ele="<td>"+data[i].Email+"</td>" + "<td>"+data[i].Password+"</td>"+
+     "<td>"+data[i].Firstname+" "+data[i].LastName+"</td>"+ "<td>"+data[i].Gender+"</td>"+
+    "<td>" +data[i].Country+"</td>"+"<td>"+data[i].Terms+"</td>"+"<td>"+data[i].Receive+"</td>"+
+    "<td>"+"<input type='button' value='Delete Row' onclick='SomeDeleteRowFunction(this)'>"+"</td>";
+    tr.innerHTML=ele;
+    }
+    
+  /*  var closebtn=document.querySelector("#closebtn");
+    //tr.appendChild(closebtn);
+   console.log(tablerow);
+    closebtn.onclick=function(){
+        var close=this.parentNode.parentNode;
+        tablerow.removeChild(close);
+    };*/
+
+    }
+    }
+form.reset();
+    </script>    
 </body>
 </html>
